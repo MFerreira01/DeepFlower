@@ -1,9 +1,14 @@
-# Proposition de code pour débuter
+import os
+
+# Changer le répertoire de travail pour le dossier contenant le script
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 ############################################################################################################
 # Cellule 1
 
-from keras.preprocessing.image import ImageDataGenerator
+# from keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
 BS=16
 datagenerator = ImageDataGenerator(rescale=1./255)
 
@@ -32,7 +37,7 @@ model = Sequential()
 model.add(Conv2D(4,(3,3),activation='relu'))
 model.add(Flatten())
 model.add(Dense(len(train_generator.class_indices), activation="softmax"))
-opt = SGD(learning_rate=1)
+opt = SGD(learning_rate=1.0)
 EPOCHS=10
 model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 H = model.fit(train_generator, validation_data = test_generator, epochs=EPOCHS)
