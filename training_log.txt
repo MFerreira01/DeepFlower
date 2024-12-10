@@ -1,0 +1,2 @@
+Training logs for each epoch:
+Epoch 1: {'accuracy': 0.15610919892787933, 'loss': 3.159764289855957, 'val_accuracy': 0.11999999731779099, 'val_loss': 2.2475364208221436}
